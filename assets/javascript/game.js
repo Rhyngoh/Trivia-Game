@@ -216,7 +216,6 @@ $(document).ready(function() {
 			clearQuestions();
 			displayImage();
 		}
-		console.log(answerBank[count]);
 	}
 	//go to the next question
 	function nextQuestion(){
@@ -229,7 +228,7 @@ $(document).ready(function() {
 		$(".wrongAnswer").html("");
 		count++;
 		marioImage = '<img src=' + imageBank[count] + ' alt="Mario Image" width="600px" height="400px">';
-		if (count === questionBank.length){	//stop the Game
+		if (count >= questionBank.length){	//stop the Game
 			clearQuestions();
 			$("#resetbtn").show();
 			stopClicking = true;
@@ -252,7 +251,6 @@ $(document).ready(function() {
 				$("#a3").html(answerArray[count][2]);
 				$("#a4").html(answerArray[count][3]);
 			}
-		console.log(count);
 	}
 	//answer choice click, only click if game has started
 	if (stopClicking !== false){
