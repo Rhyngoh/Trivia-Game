@@ -1,6 +1,16 @@
 *{
     font-family: "Press Start 2P", cursive, "Merriweather", "Open Sans", serif, sans-serif;
-    color: #eee;
+    color: #000;
+}
+h1{
+	color: #eee;
+}
+p{
+	color: black;
+}
+.question{
+	text-align: center;
+	font-size: 18px;
 }
 #background {
 	width: 100%;
@@ -17,6 +27,23 @@
 .btn-lg {
 	color: black;
 }
-.pirateStart h3 {
-	display: inline;
+.contentContainer {
+	background-color: #eee;
+	border-radius: 25px;
+	border: 2px solid black;
+	padding: 20px;
+
+}
+.answerchoice{
+	text-align: center;
+}
+.answerchoice:hover {
+	color: red;
+	font-size:125%;
+}
+#image-holder{
+	text-align:center;
+}
+.wrongAnswer{
+	text-align: center;
 }
