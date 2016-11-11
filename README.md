@@ -13,3 +13,6 @@ ___
 ___
 ### Bonus material:
 * ~~If you want an easter egg, get less than 3 correct answers and find out!~~
+
+___
+The making of this game involves understanding in jQuery, javascript, and setting timers/intervals. The HTML was made using Bootstrap while the rest of the majority was made using jQuery. 
