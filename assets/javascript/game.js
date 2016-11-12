@@ -133,7 +133,36 @@ var timer = {
 		clearInterval(counter); 
 	}
 }
-
+//Audio file and play throughout the game
+var startAudio = new Audio('assets/images/01-super-mario-bros.mp3');
+if(typeof startAudio.loop == 'boolean'){
+	startAudio.loop = true;
+} else{
+	startAudio.addEventListene('ended', function(){
+		this.currentTime = 0;
+		this.play();
+	}, false);
+}
+startAudio.play();
+//Audio file for game over 1 and 2
+var gameOverAudio1 = new Audio('assets/images/04-area-clear.mp3');
+if(typeof gameOverAudio1.loop == 'boolean'){
+	gameOverAudio1.loop = true;
+} else{
+	gameOverAudio1.addEventListene('ended', function(){
+		this.currentTime = 0;
+		this.play();
+	}, false);
+}
+var gameOverAudio2 = new Audio('assets/images/16-game-over.mp3');
+if(typeof gameOverAudio2.loop == 'boolean'){
+	gameOverAudio2.loop = true;
+} else{
+	gameOverAudio2.addEventListene('ended', function(){
+		this.currentTime = 0;
+		this.play();
+	}, false);
+}
 //jQuery stuffs
 $(document).ready(function() {
 	//clear previous answers and clear interval
@@ -233,15 +262,19 @@ $(document).ready(function() {
 			$("#resetbtn").show();
 			stopClicking = true;
 			timer.stop();
+			clearInterval(intervalTime);
 			$(".question").html("Thanks for playing! Click Reset Game to play again!");
+			startAudio.pause();
 			//game over screen
 			//Easter egg if you get less than 3 answers correct
 			if(trueLoss > 7){
 				$("#image-holder").html("<img src='assets/images/mariovomit.gif' width='600px' height='400px'/>");
 				$("#timeClock").html("Correct: " + trueVictory + "<br> Incorrect: " + trueLoss);
+				gameOverAudio2.play();
 			} else {
 				$("#image-holder").html("<img src='assets/images/mariogameover.png' width='600px' height='400px'/>");
 				$("#timeClock").html("Correct: " + trueVictory + "<br> Incorrect: " + trueLoss);
+				gameOverAudio1.play();
 			}
 		}
 		else {
@@ -270,6 +303,9 @@ $(document).ready(function() {
 		$("#resetbtn").on("click", function(){
 		resetGame();
 		$("#resetbtn").hide();
+		startAudio.play();
+		gameOverAudio1.pause();
+		gameOverAudio2.pause();
 		});
 	}
 	$("#resetbtn").hide();
